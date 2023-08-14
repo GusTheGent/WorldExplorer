@@ -4,13 +4,13 @@ import Title from "components/Title/Title";
 import { useParams } from "react-router-dom";
 import { useGetCountryByNameQuery } from "services/api";
 import Loader from "components/Loader/Loader";
-import { Alert, Box, Card, Grid, Typography } from "@mui/material";
+import { Alert, Avatar, Box, Card, Grid, Typography } from "@mui/material";
 import "./CountryDetails.scss";
 
 const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const { countryName } = useParams();
   const { data = [], error, isLoading } = useGetCountryByNameQuery(countryName);
-  const country = data[0];
+  const country = countryName === "India" ? data[1] : data[0];
   const nativeName = country?.name?.nativeName;
   let langKey: string = "";
 
@@ -50,7 +50,10 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
         <Loader />
       ) : (
         <Box sx={{ padding: "2rem" }}>
-          <Title title={country.name.common} />
+          <Box className="title-container">
+            <Title title={country.name.common} />
+            <Avatar src={country.flags.png} />
+          </Box>
           <Grid container spacing={2}>
             <Grid item xs={8}>
               <Card className="card" raised={true}>

@@ -12,16 +12,28 @@ import { dataGridValues } from "./helper";
 import "./DataGrid.scss";
 import { useNavigate } from "react-router-dom";
 import { Country } from "interfaces/Country.interface";
+import { useState } from "react";
 
 const DataGrid: React.FunctionComponent<DataGridProps> = ({
   countries,
   error,
 }) => {
   const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchedCountries, setSearchedCountries] = useState<Country[]>([]);
 
   const handleNavigation = (country: Country) => {
     navigate(`/details/${country.name.common}`);
   };
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value)
+    const filteredCountries = countries.filter(country =>
+      country.name.common.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSearchedCountries(filteredCountries);
+  };
+
   if (error) {
     if ("status" in error) {
       const errMsg =
@@ -37,9 +49,22 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
       return <div>{error.message}</div>;
     }
   }
+
+  const countriesToDisplay = searchQuery ? searchedCountries : countries;
+
   return (
     <React.Fragment>
-      {countries.length !== 0 && (
+      <div>
+        <input
+          type="text"
+          placeholder="Search Country"
+          value={searchQuery}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            handleSearch(event)
+          }
+        />
+      </div>
+      {countriesToDisplay.length !== 0 && (
         <TableContainer>
           <Table sx={{ minWidth: 650 }}>
             <TableHead>
@@ -52,7 +77,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
               </TableRow>
             </TableHead>
             <TableBody>
-              {countries.map((country, index) => (
+              {countriesToDisplay.map((country, index) => (
                 <TableRow
                   key={index}
                   className="table-row"

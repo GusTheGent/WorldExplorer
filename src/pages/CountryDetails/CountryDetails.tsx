@@ -12,7 +12,12 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const { data = [], error, isLoading } = useGetCountryByNameQuery(countryName);
   const country = countryName === "India" ? data[1] : data[0];
   const nativeName = country?.name?.nativeName;
+  const currencies = country?.currencies;
+  const languagesSpoken = country?.languages;
+  // const translationObject = country?.translations
   let langKey: string = "";
+  let currencyKey: string= "";
+  let languages: string[] = [];
 
   if (nativeName) {
     const keys = Object.keys(nativeName);
@@ -20,6 +25,21 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
       langKey = key;
     });
   }
+
+  if(currencies) {
+    const keys = Object.keys(currencies)
+    keys.forEach((key) => {
+      currencyKey = key
+    })
+  }
+
+  if(languagesSpoken) {
+    const values = Object.values(languagesSpoken)
+    languages = values;
+  }
+
+  // const translations = Object.entries(translationObject)
+  // translations.map((trans) => console.log(trans))
 
   if (error) {
     if ("status" in error) {
@@ -67,6 +87,31 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                 <Typography variant="h6">
                   Official in Country's Language:
                   <span> {country.name.nativeName[langKey].official}</span>
+                </Typography>
+              </Card>
+              <Card className="card" raised={true}>
+                <Typography variant="h6">
+                  Region:
+                  <span> {country.region}</span>
+                </Typography>
+                <Typography variant="h6">
+                  Subregion:
+                  <span> {country.subregion}</span>
+                </Typography>
+              </Card>
+              <Card className="card" raised={true}>
+                <Typography variant="h6">
+                  Currency: <span>{country?.currencies[currencyKey].name}</span>
+                </Typography>
+              </Card>
+              <Card className="card" raised={true}>
+                <Typography variant="h6">
+                  Languages Spoken: {languages.map((language, index) => <span key={index}>{language}{index !== languages.length - 1 ? ', ' : ''}</span>)}
+                </Typography>
+              </Card>
+              <Card className="card" raised={true}>
+                <Typography variant="h6">
+                 Translations: {}
                 </Typography>
               </Card>
             </Grid>

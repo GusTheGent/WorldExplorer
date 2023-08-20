@@ -42,19 +42,19 @@ export interface Name {
 }
 
 export interface NativeName {
-  [key: string]: Extension;
+  [key: string]: CountryName;
 }
 
-export interface Extension {
+interface CountryName {
   official: string;
   common: string;
 }
 
 export interface Currencies {
-  SAR: Sar;
+  [key: string]: Currency
 }
 
-export interface Sar {
+interface Currency {
   name: string;
   symbol: string;
 }
@@ -65,8 +65,9 @@ export interface Idd {
 }
 
 export interface Languages {
-  ara: string;
+  [key: string]: string
 }
+
 
 export interface Translations {
   ara: Ara2;

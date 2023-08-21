@@ -6,6 +6,9 @@ import { useGetCountryByNameQuery } from "services/api";
 import Loader from "components/Loader/Loader";
 import { Alert, Avatar, Box, Card, Grid, Typography } from "@mui/material";
 import "./CountryDetails.scss";
+import CountryName from "components/CountryName/CountryName";
+import Region from "components/Region/Region";
+import Currency from "components/Currency/Currency";
 
 const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const { countryName } = useParams();
@@ -16,25 +19,25 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const languagesSpoken = country?.languages;
   // const translationObject = country?.translations
   let langKey: string = "";
-  let currencyKey: string= "";
+  let currencyKey: string = "";
   let languages: string[] = [];
 
   if (nativeName) {
     const keys = Object.keys(nativeName);
-    keys.forEach((key) => {
+    keys.forEach(key => {
       langKey = key;
     });
   }
 
-  if(currencies) {
-    const keys = Object.keys(currencies)
-    keys.forEach((key) => {
-      currencyKey = key
-    })
+  if (currencies) {
+    const keys = Object.keys(currencies);
+    keys.forEach(key => {
+      currencyKey = key;
+    });
   }
 
-  if(languagesSpoken) {
-    const values = Object.values(languagesSpoken)
+  if (languagesSpoken) {
+    const values = Object.values(languagesSpoken);
     languages = values;
   }
 
@@ -76,43 +79,26 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
           </Box>
           <Grid container spacing={2}>
             <Grid item xs={8}>
+            <CountryName
+              officialName={country?.name?.official}
+              countryCommon={country.name.nativeName[langKey].common}
+              countryOfficial={country.name.nativeName[langKey].official}
+            ></CountryName>
+            <Region region={country.region} subregion={country.subregion}></Region>
+          <Currency currency={country?.currencies[currencyKey].name}></Currency>   
               <Card className="card" raised={true}>
                 <Typography variant="h6">
-                  Official Name: <span>{country?.name?.official}</span>
-                </Typography>
-                <Typography variant="h6">
-                  Common in Country's Language:
-                  <span> {country.name.nativeName[langKey].common}</span>
-                </Typography>
-                <Typography variant="h6">
-                  Official in Country's Language:
-                  <span> {country.name.nativeName[langKey].official}</span>
+                  Languages Spoken:{" "}
+                  {languages.map((language, index) => (
+                    <span key={index}>
+                      {language}
+                      {index !== languages.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
                 </Typography>
               </Card>
               <Card className="card" raised={true}>
-                <Typography variant="h6">
-                  Region:
-                  <span> {country.region}</span>
-                </Typography>
-                <Typography variant="h6">
-                  Subregion:
-                  <span> {country.subregion}</span>
-                </Typography>
-              </Card>
-              <Card className="card" raised={true}>
-                <Typography variant="h6">
-                  Currency: <span>{country?.currencies[currencyKey].name}</span>
-                </Typography>
-              </Card>
-              <Card className="card" raised={true}>
-                <Typography variant="h6">
-                  Languages Spoken: {languages.map((language, index) => <span key={index}>{language}{index !== languages.length - 1 ? ', ' : ''}</span>)}
-                </Typography>
-              </Card>
-              <Card className="card" raised={true}>
-                <Typography variant="h6">
-                 Translations: {}
-                </Typography>
+                <Typography variant="h6">Translations: {}</Typography>
               </Card>
             </Grid>
           </Grid>

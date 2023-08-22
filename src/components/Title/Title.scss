@@ -1,0 +1,29 @@
+@import "../../App.scss";
+
+
+.title_container {
+  position: relative;
+}
+
+.world-img {
+  position: absolute;
+  top: -15px;
+  right: 48%;
+  width: 80px;
+  height: 80px;
+  opacity:0.5;
+  animation: spin 5s linear infinite;
+  #earth{
+    width:80px;
+    height:auto;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

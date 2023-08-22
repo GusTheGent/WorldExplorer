@@ -1,12 +1,14 @@
 import * as React from "react";
 import { DataGridProps } from "./types";
 import {
+  Box,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
+  TextField,
 } from "@mui/material";
 import { dataGridValues } from "./helper";
 import "./DataGrid.scss";
@@ -54,23 +56,24 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 
   return (
     <React.Fragment>
-      <div>
-        <input
-          type="text"
-          placeholder="Search Country"
-          value={searchQuery}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-            handleSearch(event)
-          }
-        />
-      </div>
+  <Box sx={{ marginTop:"-40px", padding: "2rem"  ,display:"flex" , justifyContent:"flex-end"}}> 
+ <TextField
+  type="text"
+  placeholder="Search Country"
+  value={searchQuery}
+  onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+    handleSearch(event)
+  }
+  variant="outlined"
+/>
+</Box>
       {countriesToDisplay.length !== 0 && (
         <TableContainer>
           <Table sx={{ minWidth: 650 }}>
-            <TableHead>
-              <TableRow style={{ background: "orange" }}>
+            <TableHead sx={{ height: "80px"}}>
+              <TableRow style={{ background: "#ffff" }}>
                 {dataGridValues.columns.map((item, index) => (
-                  <TableCell style={{ fontWeight: "bold" }} key={index}>
+                  <TableCell style={{fontSize:"1.25rem", fontWeight: "bold" }} key={index}>
                     {item.Header}
                   </TableCell>
                 ))}
@@ -82,9 +85,10 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
                   key={index}
                   className="table-row"
                   onClick={() => handleNavigation(country)}
+                  sx={{ boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" }}
                 >
                   {dataGridValues.columns.map((item, columnIndex) => (
-                    <TableCell key={columnIndex}>
+                    <TableCell key={columnIndex} style={{fontSize:"1rem"}}>
                       {item.accessor(country)}
                     </TableCell>
                   ))}

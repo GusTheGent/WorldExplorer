@@ -1,9 +1,7 @@
 import * as React from "react";
 import { CountryNameProps } from "./types";
-import { useGetCountryByNameQuery } from "services/api";
-import { useParams } from "react-router-dom";
-import { Avatar, Box, Card, Grid, Typography } from "@mui/material";
-import Title from "components/Title/Title";
+import {  Card, Typography } from "@mui/material";
+
 
 const CountryName: React.FunctionComponent<CountryNameProps> = ({
   officialName,
@@ -12,28 +10,19 @@ const CountryName: React.FunctionComponent<CountryNameProps> = ({
 }) => {
   return (
     <React.Fragment>
-      <Box sx={{ padding: "2rem" }}>
-        <Box>
-          {" "}
+      <Card raised={true}>
           <Typography variant="h6">
             Official Name: <span>{officialName}</span>
           </Typography>
-        </Box>
-        <Box>
-          {" "}
           <Typography variant="h6">
             Common in Country's Language:
             <span> {countryCommon}</span>
           </Typography>
-        </Box>
-        <Box>
-          {" "}
           <Typography variant="h6">
             Official in Country's Language:
             <span> {countryOfficial}</span>
           </Typography>
-        </Box>
-      </Box>
+      </Card>
     </React.Fragment>
   );
 };

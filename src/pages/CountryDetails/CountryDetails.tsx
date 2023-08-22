@@ -9,6 +9,7 @@ import "./CountryDetails.scss";
 import CountryName from "components/CountryName/CountryName";
 import Region from "components/Region/Region";
 import Currency from "components/Currency/Currency";
+import CountryCarRules from "components/CountryCarRules/CountryCarRules";
 
 const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const { countryName } = useParams();
@@ -85,7 +86,8 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
               countryOfficial={country.name.nativeName[langKey].official}
             ></CountryName>
             <Region region={country.region} subregion={country.subregion}></Region>
-          <Currency currency={country?.currencies[currencyKey].name}></Currency>   
+          <Currency currency={country?.currencies[currencyKey].name}></Currency>  
+          <CountryCarRules carRules={country.car}/> 
               <Card className="card" raised={true}>
                 <Typography variant="h6">
                   Languages Spoken:{" "}

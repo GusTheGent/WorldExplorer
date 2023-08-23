@@ -4,10 +4,14 @@ import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Navbar: React.FunctionComponent<NavbarProps> = () => {
+
+ 
+
+  
   return (
     <React.Fragment>
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" sx={{ backgroundColor: "#333" }}>
           <Toolbar>
             <Typography variant="h4" component="div">
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>

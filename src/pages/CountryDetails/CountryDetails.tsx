@@ -12,6 +12,7 @@ import Currency from "components/Currency/Currency";
 import LanguagesSpoken from "components/LanguagesSpoken/LanguagesSpoken";
 import Translations from "components/Translations/Translations";
 
+
 const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const { countryName } = useParams();
   const { data = [], error, isLoading } = useGetCountryByNameQuery(countryName);

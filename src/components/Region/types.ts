@@ -1,4 +1,4 @@
 export type RegionProps = {
- region: string;
- subregion: string;
+ region: string | undefined;
+ subregion: string | undefined;
 };

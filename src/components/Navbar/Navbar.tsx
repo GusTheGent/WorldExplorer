@@ -15,7 +15,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = () => {
           <Toolbar>
             <Typography variant="h4" component="div">
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-                Countries
+                World Explorer
               </Link>
             </Typography>
           </Toolbar>

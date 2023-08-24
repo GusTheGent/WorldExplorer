@@ -1,3 +1,6 @@
+import { Currencies } from "interfaces/Country.interface";
+
 export type CurrencyProps = {
- currency: string;
+ currency: Currencies | undefined;
+ currencyKey: string;
 };

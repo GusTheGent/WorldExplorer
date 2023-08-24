@@ -9,7 +9,11 @@ import {
   TableHead,
   TableRow,
   Typography,
+  Accordion, 
+  AccordionSummary, 
+  AccordionDetails 
 } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const Translations: React.FunctionComponent<TranslationsProps> = ({
   translations,
@@ -17,6 +21,11 @@ const Translations: React.FunctionComponent<TranslationsProps> = ({
   return (
     <React.Fragment>
       <Box sx={{ padding: "1rem" }}>
+      <Accordion >
+        <AccordionSummary expandIcon={<ExpandMoreIcon/>}>
+          <Typography variant="h5">Country Name Translations in various languages:</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
         <TableContainer>
           <Table>
             <TableHead>
@@ -54,6 +63,8 @@ const Translations: React.FunctionComponent<TranslationsProps> = ({
             </TableBody>
           </Table>
         </TableContainer>
+        </AccordionDetails>
+      </Accordion>
       </Box>
     </React.Fragment>
   );

@@ -24,7 +24,11 @@ export const dataGridValues: CountrySchemaModel = {
     {
       Header: "Population",
       accessor: (country) =>
-        country.population.toLocaleString().replace(",", "."),
+      country.population.toLocaleString().replace(",", "."),
+    },
+    {
+      Header: "Flag",
+      accessor: (country) => country.flags.png,
     },
   ],
 };

@@ -9,6 +9,7 @@ import {
   TableHead,
   TableRow,
   TextField,
+  Avatar
 } from "@mui/material";
 import { dataGridValues } from "./helper";
 import "./DataGrid.scss";
@@ -89,7 +90,7 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
                 >
                   {dataGridValues.columns.map((item, columnIndex) => (
                     <TableCell key={columnIndex} style={{fontSize:"1rem"}}>
-                      {item.accessor(country)}
+                      {item.Header !== 'Flag' ? item.accessor(country) : <Avatar src={item.accessor(country)}/>}
                     </TableCell>
                   ))}
                 </TableRow>

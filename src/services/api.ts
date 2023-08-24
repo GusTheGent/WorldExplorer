@@ -11,7 +11,7 @@ export const api = createApi({
       query: () => "/all",
     }),
     getCountryByName: builder.query<Country[], string | undefined>({
-      query: (countryName) => `/name/${countryName}`,
+      query: (countryName) => `/name/${countryName}?fullText=true`,
     }),
   }),
 });

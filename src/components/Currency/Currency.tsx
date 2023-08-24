@@ -4,19 +4,19 @@ import { CurrencyProps } from "./types";
 
 const Currency: React.FunctionComponent<CurrencyProps> = ({
 currency,
+currencyKey
 }) => {
   return (
     <React.Fragment>
       <Box sx={{ padding: "2rem"  ,display:"flex" , justifyContent:"flex-start" , flexDirection:"column" , alignItems:"flex-start"}}>
-       <Box>
-          {" "}
           <Typography variant="h6">
             Currency:
-            <span> {currency}</span>
-          </Typography>
-        </Box>
-        <Box>         
-        </Box>
+            <span> {currency && currency[currencyKey].name}</span>
+          </Typography>       
+          <Typography variant="h6">
+            Currency Symbol:
+            <span> {currency && currency[currencyKey].symbol}</span>
+          </Typography>       
       </Box>
     </React.Fragment>
   );

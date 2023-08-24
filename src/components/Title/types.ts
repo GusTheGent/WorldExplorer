@@ -1,4 +1,3 @@
 export type TitleProps = {
-  title: string;
-  isDetails?:boolean;
+  title: string | undefined
 };

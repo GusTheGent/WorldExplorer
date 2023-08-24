@@ -1,6 +1,6 @@
 import * as React from "react";
 import { CountryNameProps } from "./types";
-import {  Card, Typography } from "@mui/material";
+import {  Box, Typography } from "@mui/material";
 
 
 const CountryName: React.FunctionComponent<CountryNameProps> = ({
@@ -10,7 +10,7 @@ const CountryName: React.FunctionComponent<CountryNameProps> = ({
 }) => {
   return (
     <React.Fragment>
-      <Card raised={true}>
+      <Box sx={{ padding: "2rem"  ,display:"flex" , justifyContent:"flex-start" , flexDirection:"column" , alignItems:"flex-start"}}>
           <Typography variant="h6">
             Official Name: <span>{officialName}</span>
           </Typography>
@@ -22,7 +22,7 @@ const CountryName: React.FunctionComponent<CountryNameProps> = ({
             Official in Country's Language:
             <span> {countryOfficial}</span>
           </Typography>
-      </Card>
+      </Box>
     </React.Fragment>
   );
 };

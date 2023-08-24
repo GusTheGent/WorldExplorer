@@ -1,10 +1,10 @@
 import React from "react";
 import { CountryDetailsProps } from "./types";
 import Title from "components/Title/Title";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetCountryByNameQuery } from "services/api";
 import Loader from "components/Loader/Loader";
-import { Alert, Avatar, Box, Card, CardContent, Grid } from "@mui/material";
+import { Alert, Box, Button, Card, CardContent, Grid } from "@mui/material";
 import "./CountryDetails.scss";
 import CountryName from "components/CountryName/CountryName";
 import Region from "components/Region/Region";
@@ -13,9 +13,11 @@ import LanguagesSpoken from "components/LanguagesSpoken/LanguagesSpoken";
 import Translations from "components/Translations/Translations";
 import CountryCarRules from "components/CountryCarRules/CountryCarRules";
 import GeneralCountryInfo from "components/GeneralCountryInfo/GeneralCountryInfo";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const { countryName } = useParams();
+  const navigate = useNavigate();
   const { data = [], error, isLoading } = useGetCountryByNameQuery(countryName);
   const country = data.find(item => item.name.common === countryName);
   const nativeName = country?.name?.nativeName;
@@ -25,6 +27,10 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   let langKey: string = "";
   let currencyKey: string = "";
   let languages: string[] = [];
+
+  const navigateBack = () => {
+    navigate(-1);
+  }
 
   if (nativeName) {
     const keys = Object.keys(nativeName);
@@ -84,7 +90,8 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Box sx={{ padding: "2rem" }}>
+        <Box sx={{ padding: "2rem", position: 'relative' }}>
+          <Button className="back-button" variant="contained" startIcon={<ArrowBackIosIcon/>} onClick={navigateBack}>Back</Button>
           <Box className="title-container">
             <Title title={country?.name.common} />
             <img src={country?.flags.png} style={{maxWidth: "120px", maxHeight: "80px", borderRadius: "5px"}} alt="Not Available"/>

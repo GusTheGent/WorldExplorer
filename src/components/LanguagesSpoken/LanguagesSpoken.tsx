@@ -10,7 +10,7 @@ const LanguagesSpoken: React.FunctionComponent<LanguagesSpokenProps> = ({
      <React.Fragment>
       <Box sx={{ padding: "2rem"  ,display:"flex" , justifyContent:"flex-start" , flexDirection:"column" , alignItems:"flex-start"}}>
            <Typography variant="h6">
-                  Languages Spoken:{" "}
+                  Languages Spoken:
                   {languages.map((language, index) => (
                     <span key={index}>
                       {language}

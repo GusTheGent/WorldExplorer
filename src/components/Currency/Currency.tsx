@@ -11,11 +11,11 @@ currencyKey
       <Box sx={{ padding: "2rem"  ,display:"flex" , justifyContent:"flex-start" , flexDirection:"column" , alignItems:"flex-start"}}>
           <Typography variant="h6">
             Currency:
-            <span> {currency && currency[currencyKey].name}</span>
+            <span> {currency ? currency[currencyKey].name : null}</span>
           </Typography>       
           <Typography variant="h6">
             Currency Symbol:
-            <span> {currency && currency[currencyKey].symbol}</span>
+            <span> {currency ? currency[currencyKey].symbol : null}</span>
           </Typography>       
       </Box>
     </React.Fragment>

@@ -13,7 +13,6 @@ import LanguagesSpoken from "components/LanguagesSpoken/LanguagesSpoken";
 import Translations from "components/Translations/Translations";
 import CountryCarRules from "components/CountryCarRules/CountryCarRules";
 import GeneralCountryInfo from "components/GeneralCountryInfo/GeneralCountryInfo";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   const { countryName } = useParams();
@@ -27,21 +26,18 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
   let langKey: string = "";
   let currencyKey: string = "";
   let languages: string[] = [];
-
-  const navigateBack = () => {
-    navigate(-1);
-  }
+  const arrowImage = process.env.PUBLIC_URL + "/arrow.svg";
 
   if (nativeName) {
     const keys = Object.keys(nativeName);
-    keys.forEach((key) => {
+    keys.forEach(key => {
       langKey = key;
     });
   }
 
   if (currencies) {
     const keys = Object.keys(currencies);
-    keys.forEach((key) => {
+    keys.forEach(key => {
       currencyKey = key;
     });
   }
@@ -90,11 +86,23 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <Box sx={{ padding: "2rem", position: 'relative' }}>
-          <Button className="back-button" variant="contained" startIcon={<ArrowBackIosIcon/>} onClick={navigateBack}>Back</Button>
+        <Box sx={{ padding: "2rem", position: "relative" }}>
+          <img
+            onClick={() => navigate(-1)}
+            className="back_btn"
+            src={arrowImage}
+          />
           <Box className="title-container">
             <Title title={country?.name.common} />
-            <img src={country?.flags.png} style={{maxWidth: "120px", maxHeight: "80px", borderRadius: "5px"}} alt="Not Available"/>
+            <img
+              src={country?.flags.png}
+              style={{
+                maxWidth: "120px",
+                maxHeight: "80px",
+                borderRadius: "5px",
+              }}
+              alt="Not Available"
+            />
           </Box>
           <Grid
             container
@@ -180,16 +188,16 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                 }}
               >
                 <CardContent>
-                  <GeneralCountryInfo 
-                  borders={country?.borders}
-                  capital={country?.capital}
-                  coatOfArms={country?.coatOfArms}
-                  independent={country?.independent}
-                  mapDetails={country?.maps}
-                  population={country?.population}
-                  startOfTheWeek={country?.startOfWeek}
-                  status={country?.status}
-                  unitedNationsMember={country?.unMember}
+                  <GeneralCountryInfo
+                    borders={country?.borders}
+                    capital={country?.capital}
+                    coatOfArms={country?.coatOfArms}
+                    independent={country?.independent}
+                    mapDetails={country?.maps}
+                    population={country?.population}
+                    startOfTheWeek={country?.startOfWeek}
+                    status={country?.status}
+                    unitedNationsMember={country?.unMember}
                   />
                 </CardContent>
               </Card>

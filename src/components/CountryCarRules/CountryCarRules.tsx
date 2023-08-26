@@ -19,12 +19,12 @@ const CountryCarRules: React.FunctionComponent<CountryCarRulesProps> = ({
       >
         <Typography variant="h6">
           Car Plates: {" "}
-          {carRules?.signs.map((sign, index) => (
+          {carRules?.signs ? carRules?.signs.map((sign, index) => (
             <span key={index}>{sign}</span>
-          ))}
+          )) : "Not Available"}
         </Typography>
         <Typography variant="h6">
-          Road Driving Side: <span>{carRules?.side}</span>
+          Road Driving Side: <span>{carRules?.side ? carRules?.side : "Not Available"}</span>
         </Typography>
       </Box>
     </React.Fragment>

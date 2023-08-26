@@ -20,7 +20,7 @@ const CountryCarRules: React.FunctionComponent<CountryCarRulesProps> = ({
       >
         <Title title="Traffic Rules"></Title>
         <Typography variant="h6">
-          Car Plates:
+          Car Plates: {" "}
           {carRules?.signs.map((sign, index) => (
             <span key={index}>{sign}</span>
           ))}

@@ -4,7 +4,7 @@ import Title from "components/Title/Title";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetCountryByNameQuery } from "services/api";
 import Loader from "components/Loader/Loader";
-import { Alert, Box, Button, Card, CardContent, Grid } from "@mui/material";
+import { Alert, Box, Card, CardContent, Grid } from "@mui/material";
 import "./CountryDetails.scss";
 import CountryName from "components/CountryName/CountryName";
 import Region from "components/Region/Region";
@@ -91,6 +91,7 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
             onClick={() => navigate(-1)}
             className="back_btn"
             src={arrowImage}
+            alt="back-arrow"
           />
           <Box className="title-container">
             <Title title={country?.name.common} />
@@ -198,6 +199,9 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                     startOfTheWeek={country?.startOfWeek}
                     status={country?.status}
                     unitedNationsMember={country?.unMember}
+                    landLocked={country?.landlocked}
+                    squaredKm={country?.area}
+                    countryName={country?.name?.common}
                   />
                 </CardContent>
               </Card>

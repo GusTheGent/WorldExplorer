@@ -10,4 +10,7 @@ export type GeneralCountryInfoProps = {
     startOfTheWeek: string | undefined
     status: string | undefined
     borders: string [] | undefined
+    squaredKm: number | undefined
+    landLocked: boolean | undefined
+    countryName: string | undefined
 }

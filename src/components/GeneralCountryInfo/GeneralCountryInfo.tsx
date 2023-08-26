@@ -13,6 +13,9 @@ const GeneralCountryInfo: React.FunctionComponent<GeneralCountryInfoProps> = ({
   startOfTheWeek,
   status,
   unitedNationsMember,
+  landLocked, 
+  squaredKm,
+  countryName
 }) => {
   return (
     <React.Fragment>
@@ -34,14 +37,20 @@ const GeneralCountryInfo: React.FunctionComponent<GeneralCountryInfoProps> = ({
           <Typography variant="h6">Capital: <span>{capital ? capital[0] : null}</span></Typography>
           <Typography variant="h6">Population: <span>{population ? population.toLocaleString().replace(",", ".") : null}</span></Typography>
           <Typography variant="h6">
+            Area covered in km²: <span>{squaredKm ? squaredKm.toLocaleString().replace(",", ".") : null}</span>
+          </Typography>
+          <Typography variant="h6">
             Start of the Week: <span>{startOfTheWeek ? startOfTheWeek.charAt(0).toUpperCase() + startOfTheWeek.slice(1) : null}</span>
           </Typography>
-          <Typography variant="h6">Status: <span>{status ? status.charAt(0).toUpperCase() + status.slice(1) : null}</span></Typography>
+          <Typography variant="h6">
+            Landlocked: <span>{landLocked ? "Yes" : "No"}</span>
+          </Typography>
           {borders ?
           <Typography variant="h6">
             Border Countries: {borders.map((border, index) => <span key={index}>{border}{index !== borders.length - 1 ? ", " : ""}</span>)}
           </Typography>
           : null}
+          <Typography variant="h6">Status: <span>{status ? status.charAt(0).toUpperCase() + status.slice(1) : null}</span></Typography>
           <Typography variant="h6">
             United Nations Member: <span>{unitedNationsMember ? "Yes" : "No"}</span>
           </Typography>
@@ -49,7 +58,7 @@ const GeneralCountryInfo: React.FunctionComponent<GeneralCountryInfoProps> = ({
             Independent: <span>{ independent ? "Yes" : "No"}</span>
           </Typography>
           <Typography variant="h6">
-           <a href={mapDetails && mapDetails.googleMaps} target="_blank" rel="noreferrer">Go to Google Maps</a>
+           <a href={mapDetails && mapDetails.googleMaps} target="_blank" rel="noreferrer">Check {countryName} at Google Maps</a>
           </Typography>
         </Box>
       </Box>

@@ -2,7 +2,6 @@ import React from "react";
 import "./CountryCarRules.scss";
 import { CountryCarRulesProps } from "./types";
 import { Box,  Typography } from "@mui/material";
-import Title from "components/Title/Title";
 
 const CountryCarRules: React.FunctionComponent<CountryCarRulesProps> = ({
   carRules,
@@ -18,7 +17,6 @@ const CountryCarRules: React.FunctionComponent<CountryCarRulesProps> = ({
           alignItems: "flex-start",
         }}
       >
-        <Title title="Traffic Rules"></Title>
         <Typography variant="h6">
           Car Plates: {" "}
           {carRules?.signs.map((sign, index) => (

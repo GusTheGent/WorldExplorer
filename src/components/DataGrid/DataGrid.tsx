@@ -69,8 +69,8 @@ const DataGrid: React.FunctionComponent<DataGridProps> = ({
 />
 </Box>
       {countriesToDisplay.length !== 0 && (
-        <TableContainer>
-          <Table sx={{ minWidth: 650 }}>
+        <TableContainer sx={{overflowX: "initial"}}>
+          <Table sx={{ minWidth: 650 }} stickyHeader>
             <TableHead sx={{ height: "80px"}}>
               <TableRow style={{ background: "#ffff" }}>
                 {dataGridValues.columns.map((item, index) => (

@@ -131,19 +131,18 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                   />
                 </CardContent>
               </Card>
-              <Box
-                sx={{
+           
+             <Box  sx={{
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                }}
-              >
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                 width: "100%",
+                 gap:"20px"
+                }}>
                   <Card
                     sx={{
                       marginBottom: "1rem",
                       borderRadius: "5px",
                       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                      width:"50%"
                     }}
                   >
                     <CardContent>
@@ -158,6 +157,7 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                       marginBottom: "1rem",
                       borderRadius: "5px",
                       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                      width:"50%"
                     }}
                   >
                     <CardContent>
@@ -167,13 +167,18 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                       ></Currency>
                     </CardContent>
                   </Card>
-                </Box>
-                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  </Box>
+                  <Box  sx={{
+                  display: "flex",
+                 width: "100%",
+                 gap:"20px"
+                }}>
                   <Card
                     sx={{
                       marginBottom: "1rem",
                       borderRadius: "5px",
                       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                      width:"50%"
                     }}
                   >
                     <CardContent>
@@ -185,14 +190,14 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                       marginBottom: "1rem",
                       borderRadius: "5px",
                       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                      width:"50%"
                     }}
                   >
                     <CardContent>
                       <CountryCarRules carRules={country?.car} />
                     </CardContent>
                   </Card>
-                </Box>
-              </Box>
+                  </Box>
               <Card
                 sx={{
                   marginBottom: "1rem",

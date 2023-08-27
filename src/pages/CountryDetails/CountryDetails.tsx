@@ -131,73 +131,77 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                   />
                 </CardContent>
               </Card>
-           
-             <Box  sx={{
+
+              <Box
+                sx={{
                   display: "flex",
-                 width: "100%",
-                 gap:"20px"
-                }}>
-                  <Card
-                    sx={{
-                      marginBottom: "1rem",
-                      borderRadius: "5px",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                      width:"50%"
-                    }}
-                  >
-                    <CardContent>
-                      <Region
-                        region={country?.region}
-                        subregion={country?.subregion}
-                      />
-                    </CardContent>
-                  </Card>
-                  <Card
-                    sx={{
-                      marginBottom: "1rem",
-                      borderRadius: "5px",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                      width:"50%"
-                    }}
-                  >
-                    <CardContent>
-                      <Currency
-                        currency={country?.currencies}
-                        currencyKey={currencyKey}
-                      ></Currency>
-                    </CardContent>
-                  </Card>
-                  </Box>
-                  <Box  sx={{
+                  width: "100%",
+                  gap: "20px",
+                }}
+              >
+                <Card
+                  sx={{
+                    marginBottom: "1rem",
+                    borderRadius: "5px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    width: "50%",
+                  }}
+                >
+                  <CardContent>
+                    <Region
+                      region={country?.region}
+                      subregion={country?.subregion}
+                    />
+                  </CardContent>
+                </Card>
+                <Card
+                  sx={{
+                    marginBottom: "1rem",
+                    borderRadius: "5px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    width: "50%",
+                  }}
+                >
+                  <CardContent>
+                    <Currency
+                      currency={country?.currencies}
+                      currencyKey={currencyKey}
+                    ></Currency>
+                  </CardContent>
+                </Card>
+              </Box>
+              <Box
+                sx={{
                   display: "flex",
-                 width: "100%",
-                 gap:"20px"
-                }}>
-                  <Card
-                    sx={{
-                      marginBottom: "1rem",
-                      borderRadius: "5px",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                      width:"50%"
-                    }}
-                  >
-                    <CardContent>
-                      <LanguagesSpoken languages={languages} />
-                    </CardContent>
-                  </Card>
-                  <Card
-                    sx={{
-                      marginBottom: "1rem",
-                      borderRadius: "5px",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                      width:"50%"
-                    }}
-                  >
-                    <CardContent>
-                      <CountryCarRules carRules={country?.car} />
-                    </CardContent>
-                  </Card>
-                  </Box>
+                  width: "100%",
+                  gap: "20px",
+                }}
+              >
+                <Card
+                  sx={{
+                    marginBottom: "1rem",
+                    borderRadius: "5px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    width: "50%",
+                  }}
+                >
+                  <CardContent>
+                    <LanguagesSpoken languages={languages} />
+                  </CardContent>
+                </Card>
+                <Card
+                  sx={{
+                    marginBottom: "1rem",
+                    borderRadius: "5px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    width: "50%",
+                  }}
+                >
+                  <CardContent>
+                    <CountryCarRules carRules={country?.car} />
+                  </CardContent>
+                </Card>
+              </Box>
               <Card
                 sx={{
                   marginBottom: "1rem",
@@ -222,17 +226,7 @@ const CountryDetails: React.FunctionComponent<CountryDetailsProps> = () => {
                   />
                 </CardContent>
               </Card>
-              <Card
-                sx={{
-                  marginBottom: "1rem",
-                  borderRadius: "5px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <CardContent>
-                  <Translations translations={translations} />
-                </CardContent>
-              </Card>
+              <Translations translations={translations} />
             </Grid>
           </Grid>
         </Box>

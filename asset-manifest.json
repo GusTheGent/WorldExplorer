@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/WorldExplorer/static/css/main.5cc88210.css",
+    "main.js": "/WorldExplorer/static/js/main.a7a2ed4a.js",
+    "static/js/787.caeeb492.chunk.js": "/WorldExplorer/static/js/787.caeeb492.chunk.js",
+    "index.html": "/WorldExplorer/index.html",
+    "main.5cc88210.css.map": "/WorldExplorer/static/css/main.5cc88210.css.map",
+    "main.a7a2ed4a.js.map": "/WorldExplorer/static/js/main.a7a2ed4a.js.map",
+    "787.caeeb492.chunk.js.map": "/WorldExplorer/static/js/787.caeeb492.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5cc88210.css",
+    "static/js/main.a7a2ed4a.js"
+  ]
+}

@@ -1,11 +1,11 @@
 import * as React from "react";
 import { NavbarProps } from "./types";
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar: React.FunctionComponent<NavbarProps> = () => {
-
- 
+  const navigate = useNavigate();
+  const handleOnClick = () => navigate('/');
 
   
   return (
@@ -14,7 +14,7 @@ const Navbar: React.FunctionComponent<NavbarProps> = () => {
         <AppBar position="static" sx={{ backgroundColor: "#333" }}>
           <Toolbar>
             <Typography variant="h4" component="div">
-              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+              <Link to="/" style={{ textDecoration: "none", color: "white" }} onClick={handleOnClick}>
                 World Explorer
               </Link>
             </Typography>
